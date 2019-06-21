@@ -2,11 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
 
-## How to use
+## Prerequisites
+  1. NodeJS 10.16.0 (https://nodejs.org/en/download/)
+  2. Angular-CLI 8.0.3 (Install after NodeJS by using run `npm install -g @angular/cli`)
+
+## Running the tests
 
 Run `npm i` after git pull for download all required node_modules.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` it will auto redirect to set home page.
 
 ## Further help
 
