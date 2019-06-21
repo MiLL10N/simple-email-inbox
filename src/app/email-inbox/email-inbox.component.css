@@ -1,0 +1,63 @@
+@media (min-width: 576px) {
+  .email-icon {
+    color: white;
+    flex: 0 0 20%;
+    max-width: 0 0 20%;
+  }
+
+  .email-detail {
+    flex: 0 0 80%;
+    max-width: 0 0 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .email-icon {
+    color: white;
+    flex: 0 0 5%;
+    max-width: 0 0 5%;
+  }
+
+  .email-detail {
+    flex: 0 0 95%;
+    max-width: 0 0 95%;
+  }
+}
+
+.text-cut {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.email-body {
+  color: grey;
+}
+
+.circle-text {
+  width: 100%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.circle-text:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.circle-text div {
+  float: left;
+  width: 100%;
+  padding-top: 50%;
+  line-height: 1em;
+  margin-top: -0.5em;
+  text-align: center;
+}

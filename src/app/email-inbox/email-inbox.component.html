@@ -1,0 +1,31 @@
+<div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="150"
+  (scrolled)="onScroll()">
+  <div class="row mt-3">
+    <div class="col-6 pl-5">Inbox</div>
+    <div class="col-6 pr-5 text-right">Filter</div>
+  </div>
+  <hr>
+  <div class="row mt-3" *ngFor="let email of emailList">
+    <div class="col-3 col-sm-1 text-center">
+      <div class="circle-text" [style.border-style]="email.checked?'solid':none"
+        [style.background-color]="email.checked?'whitesmoke':email.iconColor"
+        [style.border-color]="email.checked?'grey':none" (click)="email.checked = !email.checked">
+        <div [style.color]="email.checked?'grey':'white'">
+          {{email.checked?'\u2713':email.iconName}}</div>
+      </div>
+    </div>
+    <div class="col-9 col-sm-11">
+      <div class="row">
+        <div class="col text-cut"><span>{{email.from.name}}</span>
+        <span style="float: right;color: gray">{{email.time | amTimeAgo}}</span></div>
+        <div class="w-100"></div>
+        <div class="col text-cut"><span>{{email.subject}}</span></div>
+        <div class="w-100"></div>
+        <div class="col text-cut" style="color:grey"><span>{{email.body}}</span></div>
+      </div>
+    </div>
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+</div>
