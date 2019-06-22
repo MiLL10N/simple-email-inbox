@@ -1,11 +1,11 @@
 <div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="150"
   (scrolled)="onScroll()">
-  <div class="row mt-3">
+  <div class="row py-3" style="border-bottom: 1px solid #e5e5e5;">
     <div class="col-6 pl-5">Inbox</div>
     <div class="col-6 pr-5 text-right">Filter</div>
   </div>
-  <hr>
-  <div class="row mt-3" *ngFor="let email of emailList">
+  <div class="row pt-3" *ngFor="let email of emailList" style="border-bottom: 1px solid #e5e5e5;"
+    [style.background-color]="email.checked?'lightgray':none">
     <div class="col-3 col-sm-1 text-center">
       <div class="circle-text" [style.border-style]="email.checked?'solid':none"
         [style.background-color]="email.checked?'whitesmoke':email.iconColor"
@@ -16,16 +16,17 @@
     </div>
     <div class="col-9 col-sm-11">
       <div class="row">
-        <div class="col text-cut"><span>{{email.from.name}}</span>
-        <span style="float: right;color: gray">{{email.time | amTimeAgo}}</span></div>
+        <div class="col-6 col-sm-8 text-cut"><span>{{email.from.name}}</span>
+        </div>
+        <div *ngIf="email.checked" class="col-6 col-sm-4 text-right" style="color:grey"><i class="fa fa-trash c-pointer px-1"
+            aria-hidden="true"></i><i class="fa fa-envelope c-pointer px-1" aria-hidden="true"></i><i class="fa fa-flag c-pointer px-1"
+            aria-hidden="true"></i><i class="fa fa-thumb-tack c-pointer px-1" aria-hidden="true"></i></div>
         <div class="w-100"></div>
-        <div class="col text-cut"><span>{{email.subject}}</span></div>
+        <div class="col-6 col-sm-8 text-cut"><span>{{email.subject}}</span></div>
+        <div class="col-6 col-sm-4 text-right"><span>{{email.time | amTimeAgo}}</span></div>
         <div class="w-100"></div>
         <div class="col text-cut" style="color:grey"><span>{{email.body}}</span></div>
       </div>
-    </div>
-    <div class="col-12">
-      <hr>
     </div>
   </div>
 </div>
