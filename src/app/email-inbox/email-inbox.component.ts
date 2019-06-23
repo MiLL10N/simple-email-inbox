@@ -29,6 +29,11 @@ export class EmailInboxComponent implements OnInit {
 
   // email filter that trigger when filter select is changed
   doFilter() {
+
+    if(!this.emailList){
+      return;
+    }
+
     switch (this.filter) {
       case 'N':
         // sort email by using email sender name

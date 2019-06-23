@@ -7,14 +7,22 @@
 
     <!-- Filter -->
     <div class="col-6 pr-5">
-      <select class="form-control w-auto" style="float: right;border: none;color: dodgerblue" name="filterInbox" id="filterInbox"
-        (change)="doFilter()" [(ngModel)]="filter">
+      <select class="form-control w-auto" style="float: right;border: none;color: dodgerblue" name="filterInbox"
+        id="filterInbox" (change)="doFilter()" [(ngModel)]="filter">
         <option value="" disabled selected>Filter</option>
         <option value="N">By name</option>
         <option value="D">By date</option>
       </select>
+    </div>
     <!--  -->
 
+  </div>
+  <!--  -->
+
+  <!-- Display text when no email to display -->
+  <div class="row pt-3" *ngIf="emailList?.length == 0">
+    <div class="col text-center">
+      No new mail.
     </div>
   </div>
   <!--  -->
