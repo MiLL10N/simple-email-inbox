@@ -1,26 +1,53 @@
 <div class="container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="150"
   (scrolled)="onScroll()">
+
+  <!-- Top bar -->
   <div class="row py-3" style="border-bottom: 1px solid #e5e5e5;">
-    <div class="col-6 pl-5">Inbox</div>
-    <div class="col-6 pr-5 text-right">Filter</div>
+    <div class="col-6 pl-5 my-auto">Inbox</div>
+
+    <!-- Filter -->
+    <div class="col-6 pr-5">
+      <select class="form-control w-auto" style="float: right;border: none;color: dodgerblue" name="filterInbox" id="filterInbox"
+        (change)="doFilter()" [(ngModel)]="filter">
+        <option value="" disabled selected>Filter</option>
+        <option value="N">By name</option>
+        <option value="D">By date</option>
+      </select>
+    <!--  -->
+
+    </div>
   </div>
-  <div class="row pt-3" *ngFor="let email of emailList" style="border-bottom: 1px solid #e5e5e5;"
-    [style.background-color]="email.checked?'lightgray':none">
-    <div class="col-3 col-sm-1 text-center">
+  <!--  -->
+
+  <!-- Email loop -->
+  <div class="row pt-3 c-pointer" (click)="email.checked = !email.checked" *ngFor="let email of emailList"
+    style="border-bottom: 1px solid #e5e5e5;" [style.background-color]="email.checked?'lightgray':none">
+
+    <!-- Name icon that will show only when dpp > 768px -->
+    <div class="d-none d-lg-block col-lg-1 text-center">
       <div class="circle-text" [style.border-style]="email.checked?'solid':none"
         [style.background-color]="email.checked?'whitesmoke':email.iconColor"
-        [style.border-color]="email.checked?'grey':none" (click)="email.checked = !email.checked">
+        [style.border-color]="email.checked?'grey':none">
         <div [style.color]="email.checked?'grey':'white'">
-          {{email.checked?'\u2713':email.iconName}}</div>
+          <span *ngIf="email.checked"><i class="fa fa-check" aria-hidden="true"></i></span>
+          <span *ngIf="!email.checked">{{email.iconName}}</span>
+        </div>
       </div>
     </div>
-    <div class="col-9 col-sm-11">
+
+    <!-- Email subject and detail -->
+    <div class="col-12 col-lg-11">
       <div class="row">
         <div class="col-6 col-sm-8 text-cut"><span>{{email.from.name}}</span>
         </div>
-        <div *ngIf="email.checked" class="col-6 col-sm-4 text-right" style="color:grey"><i class="fa fa-trash c-pointer px-1"
-            aria-hidden="true"></i><i class="fa fa-envelope c-pointer px-1" aria-hidden="true"></i><i class="fa fa-flag c-pointer px-1"
-            aria-hidden="true"></i><i class="fa fa-thumb-tack c-pointer px-1" aria-hidden="true"></i></div>
+
+        <!-- Icons that will show only when e-mail is selected -->
+        <div *ngIf="email.checked" class="col-6 col-sm-4 text-right" style="color:grey"><i
+            class="fa fa-trash c-pointer px-1" aria-hidden="true"></i><i class="fa fa-envelope c-pointer px-1"
+            aria-hidden="true"></i><i class="fa fa-flag c-pointer px-1" aria-hidden="true"></i><i
+            class="fa fa-thumb-tack c-pointer px-1" aria-hidden="true"></i></div>
+        <!--  -->
+
         <div class="w-100"></div>
         <div class="col-6 col-sm-8 text-cut"><span>{{email.subject}}</span></div>
         <div class="col-6 col-sm-4 text-right"><span>{{email.time | amTimeAgo}}</span></div>
@@ -28,5 +55,8 @@
         <div class="col text-cut" style="color:grey"><span>{{email.body}}</span></div>
       </div>
     </div>
+    <!--  -->
+
   </div>
+  <!--  -->
 </div>

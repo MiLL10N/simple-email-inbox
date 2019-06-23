@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MomentModule } from 'ngx-moment';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { EmailInboxComponent } from './email-inbox/email-inbox.component';
 import { HomeComponent } from './home/home.component';
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     InfiniteScrollModule,
-    MomentModule
+    MomentModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
