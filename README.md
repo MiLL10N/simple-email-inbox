@@ -8,9 +8,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Running the tests
 
-Run `npm i` after git pull for download all required node_modules.
+Run `npm i` after git pull to download all required node_modules.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/` it will auto redirect to set home page.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+Template email list can be found in `simple-email-list.json` file. You can add/edit email there.
 
 ## Further help
 
